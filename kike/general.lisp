@@ -1,3 +1,5 @@
+(defun c:general(punto dato id infoD / pini pfin pivot clista palto caja contador idList corX))
+;-------lamada-------
 (defun general(punto dato id infoD / pini pfin pivot clista palto caja contador idList corX)
 	(setq contador 1)
 	(setq pini punto)
