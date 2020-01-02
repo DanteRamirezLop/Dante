@@ -1,3 +1,5 @@
+(defun c:IniCir(unto texto))
+;-----llamada-----
 ;funciones generales
 (defun IniCir(punto texto)
 	(setvar "CLAYER" "Cables")
