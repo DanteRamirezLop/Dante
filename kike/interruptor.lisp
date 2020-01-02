@@ -1,3 +1,5 @@
+(defun c:interruptor(punto texto1 texto2))
+;-----llamada-----
 (defun interruptor (punto texto1 texto2)
 	(setvar "CLAYER" "Celeste")
 	(command "line"
