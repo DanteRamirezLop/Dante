@@ -1,3 +1,5 @@
+(defun c:crownCase2(punto / pivot))
+;-----llamada-----
 (defun crownCase2 (punto / pivot)
 	(command "line"
 		(list (- (car punto) 3) (cadr punto))
