@@ -1,3 +1,5 @@
+(defun c:unigen(/ p1 dataF conecVol conecData firstPoint))
+;-------lamada-------
 (defun c:unigen(/ p1 dataF conecVol conecData firstPoint)
 	(setq p1 (getpoint "\nPrimer punto"))
 	(command "osmode" 0)
