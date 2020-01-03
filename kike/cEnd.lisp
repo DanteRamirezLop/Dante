@@ -1,3 +1,5 @@
+(defun c:cEnd (punto texto))
+;----llamada----
 (defun cEnd (punto texto)
 	(command "line"
 		punto
