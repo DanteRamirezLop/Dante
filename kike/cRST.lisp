@@ -1,3 +1,5 @@
+(defun c:cRST(punto))
+;---llamada----
 (defun cRST(punto)
 	(command "line"
 		punto
