@@ -1,3 +1,5 @@
+(defun c:Eline (texto1 texto2 punto))
+;--llamada---
 (defun Eline (texto1 texto2 punto)
 	(command "line"
 		punto
