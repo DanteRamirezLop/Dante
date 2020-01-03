@@ -1,3 +1,5 @@
+(defun c:cRep (lista punto premier / retorno))
+;----llamada---
 ;Empaca la info para las conexiones
 (defun cRep (lista punto premier / retorno)
 	(foreach cause premier
