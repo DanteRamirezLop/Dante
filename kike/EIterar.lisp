@@ -1,4 +1,5 @@
-
+(defun c:EIterar (data punto))
+;---llamada----
 (defun EIterar (data punto)
 	(command "line"
 		punto
