@@ -1,5 +1,7 @@
-
-(defun c:cDownInt2 (punto texto))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(cDownInt2 punto "Hola")
+)
 ;--llamada---
 (defun cDownInt2 (punto texto)
 	(command "line"
