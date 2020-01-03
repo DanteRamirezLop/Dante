@@ -1,3 +1,5 @@
+(defun c:transferUp (punto texto))
+;----llamada--
 ;dibuja la transferencia en la parte de arriba del tablero
 (defun transferUp (punto texto)
 	(command "line"
