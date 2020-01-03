@@ -1,3 +1,5 @@
+(defun c:CIterador (punto data / pFin pivot))
+;----llamada---
 (defun CIterador (punto data / pFin pivot)
 	(foreach item data
 		(if (= (car item) "iniCon")
