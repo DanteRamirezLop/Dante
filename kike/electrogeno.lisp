@@ -1,3 +1,5 @@
+(defun c:electrogeno (DataColec / dataElec flag f1 f2))
+;---llamada---
 (defun electrogeno (DataColec / dataElec flag f1 f2)
 	(setq dataElec (eData))
 	(foreach item2 dataElec
