@@ -1,3 +1,5 @@
+(defun c:Corona (punto texto))
+;--llamada----
 ;funcion solo para general
 (defun Corona (punto texto)
 	(setvar "CLAYER" "Cables")
