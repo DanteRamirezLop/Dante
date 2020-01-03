@@ -1,3 +1,5 @@
+(defun c:CDownInt (punto texto))
+;------llamada---
 (defun CDownInt (punto texto)
 	(command "line"
 		punto
