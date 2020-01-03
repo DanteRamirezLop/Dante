@@ -1,3 +1,5 @@
+(defun c:reloj (punto))
+;-----llamada-----
 (defun reloj (punto)
 	(command "line"
 		punto
