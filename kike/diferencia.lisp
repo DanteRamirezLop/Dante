@@ -1,3 +1,5 @@
+(defun c:diferencial (punto texto1 texto2))
+;-------llamada----
 (defun diferencial (punto texto1 texto2)
 	(setvar "CLAYER" "Ambar")
 	(command "line"
