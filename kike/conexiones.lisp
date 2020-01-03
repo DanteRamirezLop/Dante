@@ -1,3 +1,5 @@
+(defun c:conexiones (data / p1 p2 crown))
+;--- llamada ---
 ;se encarga de conectar todas las conexiones existentes, excepto los electrogenos y los condensadores
 (defun conexiones (data / p1 p2 crown)
 	(setq crown (dataCrown))
