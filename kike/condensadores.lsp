@@ -36,7 +36,8 @@
 	(command "_.MTEXT" (list (- (- (car punto2) nCon) 3) (+ (cadr punto2) 4))
 		"_Justify" "BC"
 		"_Height" 0.5
-		"_none" "@" "NOTA: Banco de condensadores con reactor desintonizado para evitar armonicos.\nBanco similar al modelo ALPIVAR MS10040.189 de LEGRAND" "")
+		"_none" "@" "NOTA: Banco de condensadores con reactor desintonizado para evitar armonicos.\nBanco similar al modelo ALPIVAR MS10040.189 de LEGRAND
+		\nNOTA: Los contactores de este banco serán especiales para condensadores" "")
 	(setq nCon (+ (* (- nCon 12.0) 2.0) 20.0))
 	(command "rectang"
 		(list (car punto2) (+ (cadr punto2) 15.0))
