@@ -1,3 +1,5 @@
+(defun c:DesfasarCaja (punto data / counter))
+;-------llamada---------
 ;funcion para desfasar la caja, es el espacio entre los tableros
 (defun DesfasarCaja (punto data / counter)
 	(setq counter -1.0)
