@@ -1,4 +1,5 @@
-
+(defun c:CUpInt (punto texto))
+;------llamada---
 (defun CUpInt (punto texto)
 	(command "line"
 		(list (- (car punto) 0.3) (+ (cadr punto) 0.3))
