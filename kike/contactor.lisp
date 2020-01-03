@@ -1,3 +1,5 @@
+(defun c:contactor(punto))
+;-----llamada-----
 (defun contactor(punto)
 	(setvar "CLAYER" "Verde")
 	(command "line"
