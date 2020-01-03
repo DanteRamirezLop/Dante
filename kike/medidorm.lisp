@@ -1,3 +1,5 @@
+(defun c:medidorm(punto texto))
+;-----llamada-----
 (defun medidorm (punto texto)
 	(setvar "CLAYER" "Celeste")
 	(transferInt punto)
