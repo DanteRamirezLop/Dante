@@ -1,3 +1,5 @@
+(defun c:PonerCaja (punto dato texto / counter pCaja))
+;---llamada---
 ;funcion para poner la caja aca se puso el gabinete tambien
 (defun PonerCaja (punto dato texto / counter pCaja)
 	(setq counter -1.0)
