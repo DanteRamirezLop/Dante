@@ -1,3 +1,5 @@
+(defun c:borderSquare (punto modo))
+;----lamada---
 (defun borderSquare (punto modo)
 	(if (= modo 1)
 		(progn
