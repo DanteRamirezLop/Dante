@@ -1,3 +1,6 @@
+
+(defun c:cDownInt2 (punto texto))
+;--llamada---
 (defun cDownInt2 (punto texto)
 	(command "line"
 		(list (car punto) (cadr punto))
