@@ -1,4 +1,5 @@
-
+(defun c:encerrar (p1 p2 texto))
+;---llamada---
 (defun encerrar (p1 p2 texto)
 	(setvar "CLAYER" "Contorno")
 	(command "rectang"
