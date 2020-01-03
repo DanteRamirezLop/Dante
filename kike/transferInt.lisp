@@ -1,3 +1,6 @@
+(defun c:transferInt (punto))
+;------llamada---
+
 (defun transferInt (punto)
 	(command "arc"
 		(list (car punto) (cadr punto))
