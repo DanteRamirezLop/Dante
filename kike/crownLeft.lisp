@@ -1,3 +1,5 @@
+(defun c:crownLeft (punto / pivot))
+;---lamada---
 (defun crownLeft (punto / pivot)
 	(command "line"
 		(list (- (car punto) 2.5) (cadr punto))
