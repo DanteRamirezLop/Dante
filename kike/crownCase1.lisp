@@ -1,3 +1,5 @@
+(defun c:crownCase1 (punto))
+;---llamada----
 (defun crownCase1 (punto)
 	(command "line"
 		punto
