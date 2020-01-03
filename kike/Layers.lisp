@@ -1,3 +1,5 @@
+(defun c:Layers())
+;--llamada---
 (defun Layers()
 	(command "-layer"
 		"m" "Contorno"
