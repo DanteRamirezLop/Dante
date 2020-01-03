@@ -1,3 +1,5 @@
+(defun c:ultiTab(punto texto1 texto2))
+;-----llamada-----
 (defun ultiTab(punto texto1 texto2)
 	(setvar "CLAYER" "AzulA")
 	(command "rectang"
