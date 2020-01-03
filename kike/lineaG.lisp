@@ -1,3 +1,5 @@
+(defun c:lineaG (punto puntoI texto1 texto2))
+;-----llamada-----
 (defun lineaG (punto puntoI texto1 texto2)
 	(setvar "CLAYER" "Verde")
 	(command "line"
