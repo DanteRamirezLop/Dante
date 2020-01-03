@@ -1,3 +1,5 @@
+(defun c:conmutador (punto orden texto))
+;-----llamada-----
 (defun conmutador(punto orden texto)
 	(command "line"
 		punto
