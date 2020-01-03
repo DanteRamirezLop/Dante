@@ -1,3 +1,5 @@
+(defun c:cRele (punto punto2))
+;---llamada----
 (defun cRele (punto punto2)
 	(command "rectang"
 		(list (- (car punto) 3) (+ (cadr punto) 2))
