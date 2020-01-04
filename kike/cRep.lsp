@@ -1,4 +1,7 @@
-(defun c:cRep (lista punto premier / retorno))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(cRep punto "Hola")
+)
 ;----llamada---
 ;Empaca la info para las conexiones
 (defun cRep (lista punto premier / retorno)
