@@ -1,4 +1,7 @@
-(defun c:EIterar (data punto))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(EIterar punto "Hola")
+)
 ;---llamada----
 (defun EIterar (data punto)
 	(command "line"
