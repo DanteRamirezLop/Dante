@@ -1,4 +1,7 @@
-(defun c:condensadores(punto1 datos / counter punto2 puntoRele condensadorData nCon))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(condensadores punto "Hola")
+)
 ;----llamada---
 ;de los condensadores por fin 
 (defun condensadores(punto1 datos / counter punto2 puntoRele condensadorData nCon)
