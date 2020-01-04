@@ -1,4 +1,7 @@
-(defun c:electrogeno (DataColec / dataElec flag f1 f2))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(electrogeno punto "Hola")
+)
 ;---llamada---
 (defun electrogeno (DataColec / dataElec flag f1 f2)
 	(setq dataElec (eData))
