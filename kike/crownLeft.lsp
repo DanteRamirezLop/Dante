@@ -1,4 +1,7 @@
-(defun c:crownLeft (punto / pivot))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(crownLeft punto "Hola")
+)
 ;---lamada---
 (defun crownLeft (punto / pivot)
 	(command "line"
