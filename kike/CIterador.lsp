@@ -1,4 +1,7 @@
-(defun c:CIterador (punto data / pFin pivot))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(CIterador punto "Hola")
+)
 ;----llamada---
 (defun CIterador (punto data / pFin pivot)
 	(foreach item data
