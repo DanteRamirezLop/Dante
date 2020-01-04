@@ -1,4 +1,7 @@
-(defun c:transferInt (punto))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(transferInt punto "Hola")
+)
 ;------llamada---
 
 (defun transferInt (punto)
