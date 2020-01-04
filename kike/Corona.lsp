@@ -1,4 +1,7 @@
-(defun c:Corona (punto texto))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(Corona punto "Hola")
+)
 ;--llamada----
 ;funcion solo para general
 (defun Corona (punto texto)
