@@ -1,4 +1,7 @@
-(defun c:CUpInt (punto texto))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(CUpInt punto "Hola")
+)
 ;------llamada---
 (defun CUpInt (punto texto)
 	(command "line"
