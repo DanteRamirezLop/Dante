@@ -1,5 +1,5 @@
 (defun c:unigen (/ punto)
-	(setq punto (getpoint "punto"))
+	(setq punto (getpoint "Texto"))
 	(EIterar punto "Hola")
 )
 ;---llamada----
