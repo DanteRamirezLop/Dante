@@ -1,4 +1,7 @@
-(defun c:diferencial (punto texto1 texto2))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(diferencial punto "Hola")
+)
 ;-------llamada----
 (defun diferencial (punto texto1 texto2)
 	(setvar "CLAYER" "Ambar")
