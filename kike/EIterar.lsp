@@ -1,6 +1,6 @@
-(defun c:unigen (/ punto)
-	(setq punto (getpoint "Texto"))
-	(EIterar punto "Hola")
+(defun c:unigen (/ data)
+	(setq data (getpoint "Texto"))
+	(EIterar data "Hola")
 )
 ;---llamada----
 (defun EIterar (data punto)
