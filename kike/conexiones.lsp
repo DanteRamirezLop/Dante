@@ -1,4 +1,7 @@
-(defun c:conexiones (data / p1 p2 crown))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(conexiones punto "Hola")
+)
 ;--- llamada ---
 ;se encarga de conectar todas las conexiones existentes, excepto los electrogenos y los condensadores
 (defun conexiones (data / p1 p2 crown)
