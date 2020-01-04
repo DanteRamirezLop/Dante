@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
 	(cRele punto "Hola")
 )
+;&barracudaStop
 ;---llamada----
 (defun cRele (punto punto2)
 	(command "rectang"

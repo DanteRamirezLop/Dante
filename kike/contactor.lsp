@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
 	(contactor punto "Hola")
 )
+;&barracudaStop
 ;-----llamada-----
 (defun contactor(punto)
 	(setvar "CLAYER" "Verde")

@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
 	(cRST punto "Hola")
 )
+;&barracudaStop
 ;---llamada----
 (defun cRST(punto)
 	(command "line"

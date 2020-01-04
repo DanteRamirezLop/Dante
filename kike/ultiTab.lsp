@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
 	(ultiTab punto "Hola")
 )
+;&barracudaStop
 ;-----llamada-----
 (defun ultiTab(punto texto1 texto2)
 	(setvar "CLAYER" "AzulA")

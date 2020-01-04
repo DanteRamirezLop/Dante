@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
 	(condensadores punto "Hola")
 )
+;&barracudaStop
 ;----llamada---
 ;de los condensadores por fin 
 (defun condensadores(punto1 datos / counter punto2 puntoRele condensadorData nCon)
@@ -22,7 +24,7 @@
 	(cRele (list (- (car punto2) 5) (- (cadr punto2) 7)) puntoRele)
 	(setq nCon -1.0)
 	(foreach item condensadorData
-		(if (= (car item) "iniCon")
+		(if (= (car item) "end")
 			(setq nCon (+ nCon 1.0))
 		)
 	)

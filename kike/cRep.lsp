@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
 	(cRep punto "Hola")
 )
+;&barracudaStop
 ;----llamada---
 ;Empaca la info para las conexiones
 (defun cRep (lista punto premier / retorno)

@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
 	(general punto "Hola")
 )
+;&barracudaStop
 ;-------lamada-------
 (defun general(punto dato id infoD / pini pfin pivot clista palto caja contador idList corX)
 	(setq contador 1)

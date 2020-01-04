@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
 	(crownLeft punto "Hola")
 )
+;&barracudaStop
 ;---lamada---
 (defun crownLeft (punto / pivot)
 	(command "line"

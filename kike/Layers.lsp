@@ -1,4 +1,6 @@
+;&barracudaStart
 (defun c:Layers())
+;&barracudaStop
 ;--llamada---
 (defun Layers()
 	(command "-layer"

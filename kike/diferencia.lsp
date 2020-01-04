@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
 	(diferencial punto "Hola")
 )
+;&barracudaStop
 ;-------llamada----
 (defun diferencial (punto texto1 texto2)
 	(setvar "CLAYER" "Ambar")

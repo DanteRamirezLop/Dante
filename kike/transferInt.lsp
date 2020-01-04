@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
 	(transferInt punto "Hola")
 )
+;&barracudaStop
 ;------llamada---
 
 (defun transferInt (punto)

@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
 	(encerrar punto "Hola")
 )
+;&barracudaStop
 ;---llamada---
 (defun encerrar (p1 p2 texto)
 	(setvar "CLAYER" "Contorno")

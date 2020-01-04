@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
 	(PonerCaja punto "hola")
 )
+;&barracudaStop
 ;---llamada---
 ;funcion para poner la caja aca se puso el gabinete tambien
 (defun PonerCaja (punto dato texto / counter pCaja)

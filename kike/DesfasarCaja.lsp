@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
 	(DesfasarCaja punto "hola")
 )
+;&barracudaStop
 ;-------llamada---------
 ;funcion para desfasar la caja, es el espacio entre los tableros
 (defun DesfasarCaja (punto data / counter)

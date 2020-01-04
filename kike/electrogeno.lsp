@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
 	(electrogeno punto "Hola")
 )
+;&barracudaStop
 ;---llamada---
 (defun electrogeno (DataColec / dataElec flag f1 f2)
 	(setq dataElec (eData))

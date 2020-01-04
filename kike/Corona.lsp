@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
 	(Corona punto "Hola")
 )
+;&barracudaStop
 ;--llamada----
 ;funcion solo para general
 (defun Corona (punto texto)

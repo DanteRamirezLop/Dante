@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
 	(medidorm punto "Hola")
 )
+;&barracudaStop
 ;-----llamada-----
 (defun medidorm (punto texto)
 	(setvar "CLAYER" "Celeste")

@@ -1,7 +1,5 @@
-(defun c:unigen (/ punto)
-	(setq punto (getpoint "punto"))
-	(borderSquare punto 0)
-)
+
+
 ;----lamada---
 (defun borderSquare (punto modo)
 	(if (= modo 1)
@@ -101,10 +99,8 @@
 		)
 	)
 )
-(defun c:unigen (/ punto)
-	(setq punto (getpoint "punto"))
-	(CDownInt punto "Hola")
-)
+
+
 ;------llamada---
 (defun CDownInt (punto texto)
 	(command "line"
@@ -141,10 +137,8 @@
 		"")
 	write (list (car punto) (- (cadr punto) 6.5))
 )
-(defun c:unigen (/ punto)
-	(setq punto (getpoint "punto"))
-	(cDownInt2 punto "Hola")
-)
+
+
 ;--llamada---
 (defun cDownInt2 (punto texto)
 	(command "line"
@@ -167,7 +161,8 @@
 		"_none" "@" texto "")
 	write (list (car punto) (- (cadr punto) 3))
 )
-(defun c:cEnd (punto texto))
+
+
 ;----llamada----
 (defun cEnd (punto texto)
 	(command "line"
@@ -189,24 +184,46 @@
 		"_Height" 0.5
 		"_none" "@" texto "")
 )
-(defun c:CIterador (punto data / pFin pivot))
+
+
 ;----llamada---
-(defun CIterador (punto data / pFin pivot)
+(defun CIterador (punto data / pFin pivot intPivot)
 	(foreach item data
 		(if (= (car item) "iniCon")
 			(progn 
 				(if (= pFin nil)
 					(setq pFin punto)
-					(setq pFin (list (- (car pFin) 10) (cadr pFin)))
+					(setq pFin (list (- (car pFin) 8) (cadr pFin)))
 				)
-				(setq pivot pFin)
 			)
 		)
 		(if (= (car item) "int")
-			(setq pivot (CDownInt pivot (cadr item)))
+			(progn
+				(if (= pFin nil)
+					(setq pFin punto)
+					(setq pFin (list (- (car pFin) 8) (cadr pFin)))
+				)
+				(setq pivot pFin)
+				(setq pivot (CDownInt pivot (cadr item)))
+				(setq intPivot nil)
+			)
 		)
 		(if (= (car item) "mint")
-			(setq pivot (cDownInt2 pivot (cadr item)))
+			(progn
+				(if (= intPivot nil)
+					(setq intPivot pivot)
+					(progn
+						(command "line"
+							intPivot
+							(list (- (car intPivot) 8) (cadr intPivot))
+							"")
+						(setq intPivot (list (- (car intPivot) 8) (cadr intPivot)))
+						(setq pivot intPivot)
+						(setq pFin (list (- (car pFin) 8) (cadr pFin)))
+					)
+				)
+				(setq pivot (cDownInt2 pivot (cadr item)))
+			)
 		)
 		(if (= (car item) "end")
 			(cEnd pivot (cadr item))
@@ -217,7 +234,8 @@
 		pFin
 		"")
 )
-(defun c:condensadores(punto1 datos / counter punto2 puntoRele condensadorData nCon))
+
+
 ;----llamada---
 ;de los condensadores por fin 
 (defun condensadores(punto1 datos / counter punto2 puntoRele condensadorData nCon)
@@ -238,7 +256,7 @@
 	(cRele (list (- (car punto2) 5) (- (cadr punto2) 7)) puntoRele)
 	(setq nCon -1.0)
 	(foreach item condensadorData
-		(if (= (car item) "iniCon")
+		(if (= (car item) "end")
 			(setq nCon (+ nCon 1.0))
 		)
 	)
@@ -255,7 +273,8 @@
 	(command "_.MTEXT" (list (- (- (car punto2) nCon) 3) (+ (cadr punto2) 4))
 		"_Justify" "BC"
 		"_Height" 0.5
-		"_none" "@" "NOTA: Banco de condensadores con reactor desintonizado para evitar armonicos.\nBanco similar al modelo ALPIVAR MS10040.189 de LEGRAND" "")
+		"_none" "@" "NOTA: Banco de condensadores con reactor desintonizado para evitar armonicos.\nBanco similar al modelo ALPIVAR MS10040.189 de LEGRAND
+		\nNOTA: Los contactores de este banco serán especiales para condensadores" "")
 	(setq nCon (+ (* (- nCon 12.0) 2.0) 20.0))
 	(command "rectang"
 		(list (car punto2) (+ (cadr punto2) 15.0))
@@ -267,7 +286,8 @@
 		"_none" "@" "BANCO DE CONDENSADORES CON REACTORES\nDESINTONIZADOS PARA FILTRAR ARMONICOS" "")
 
 )
-(defun c:conexiones (data / p1 p2 crown))
+
+
 ;--- llamada ---
 ;se encarga de conectar todas las conexiones existentes, excepto los electrogenos y los condensadores
 (defun conexiones (data / p1 p2 crown)
@@ -309,7 +329,8 @@
 		)
 	)
 )
-(defun c:conmutador (punto orden texto))
+
+
 ;-----llamada-----
 (defun conmutador(punto orden texto)
 	(command "line"
@@ -366,7 +387,8 @@
 		"_none" "@" "M" "")
 	write (list (car punto) (- (cadr punto) 4))
 )
-(defun c:contactor(punto))
+
+
 ;-----llamada-----
 (defun contactor(punto)
 	(setvar "CLAYER" "Verde")
@@ -405,7 +427,8 @@
 		"_none" "@" "C" "")
 	write (list (car punto) (- (cadr punto) 2))
 )
-(defun c:Corona (punto texto))
+
+
 ;--llamada----
 ;funcion solo para general
 (defun Corona (punto texto)
@@ -580,7 +603,8 @@
 		"_Height" 0.4
 		"_none" "@" "VER PROYECTO DE SISTEMA DE UTILIZACION" "")
 )
-(defun c:cRele (punto punto2))
+
+
 ;---llamada----
 (defun cRele (punto punto2)
 	(command "rectang"
@@ -659,7 +683,8 @@
 		"_Height" 0.5
 		"_none" "@" "1T/C\n1000/5A" "")
 )
-(defun c:cRep (lista punto premier / retorno))
+
+
 ;----llamada---
 ;Empaca la info para las conexiones
 (defun cRep (lista punto premier / retorno)
@@ -674,7 +699,8 @@
 	)
 	write retorno
 )
-(defun c:crownCase1 (punto))
+
+
 ;---llamada----
 (defun crownCase1 (punto)
 	(command "line"
@@ -777,7 +803,8 @@
 		(list (+ (car punto) 1.35) (+ (cadr punto) 4.4))
 		"")
 )
-(defun c:crownCase2(punto / pivot))
+
+
 ;-----llamada-----
 (defun crownCase2 (punto / pivot)
 	(command "line"
@@ -888,7 +915,8 @@
 		(list (- (car punto) 0.6) (+ (cadr punto) 6.1))
 		"")
 )
-(defun c:crownLeft (punto / pivot))
+
+
 ;---lamada---
 (defun crownLeft (punto / pivot)
 	(command "line"
@@ -926,7 +954,8 @@
 		(list (car pivot) (- (cadr pivot) 3))
 		"")
 )
-(defun c:cRST(punto))
+
+
 ;---llamada----
 (defun cRST(punto)
 	(command "line"
@@ -1035,7 +1064,8 @@
 		"_Height" 0.6
 		"_none" "@" "3x2A" "")
 )
-(defun c:CUpInt (punto texto))
+
+
 ;------llamada---
 (defun CUpInt (punto texto)
 	(command "line"
@@ -1067,7 +1097,197 @@
 		(list (car punto) (- (cadr punto) 3.5))
 		"")
 )
-(defun c:DesfasarCaja (punto data / counter))
+(defun data()
+	write
+	(list
+		(list 
+			(list 
+				(list (list 899 0)  "3 x 80 A\n16 kA")
+			)
+			(list "TG")
+			(list
+				(list "cage" "P.I.=41.86KW\nM.D.=37.67KW\nIP 55" "Gabinete de 128 polos")
+				(list "inicir" "C-1")
+				(list "int" "10 kA" "3 x 32 A")
+				(list "linea" "3 - 1x10.0 mm2 N2XOH  +1x10.0 mm2 N2XOH(N)  PVC   35 mm" "")
+				(list "conex" (list 900 0))
+				(list "inicir" "C-2")
+				(list "int" "10 kA" "3 x 16 A")
+				(list "linea" "3 - 1x6.0 mm2 N2XOH  +1x6.0 mm2 N2XOH(N)  DUCTO , PVC   25 mm" "")
+				(list "tabS" "TD-1" "1ER PISO")
+				(list "inicir" "C-3")
+				(list "int" "10 kA" "3 x 16 A")
+				(list "linea" "3 - 1x6.0 mm2 N2XOH  +1x6.0 mm2 N2XOH(N)  DUCTO , PVC   25 mm" "")
+				(list "tabS" "TD-2" "1ER PISO")
+				(list "inicir" "C-4")
+				(list "int" "10 kA" "3 x 16 A")
+				(list "linea" "3 - 1x6.0 mm2 N2XOH  +1x6.0 mm2 N2XOH(N)  DUCTO , PVC   25 mm" "")
+				(list "tabS" "TD-3" "1ER PISO")
+				(list "inicir" "C-5")
+				(list "int" "10 kA" "3 x 16 A")
+				(list "linea" "3 - 1x6.0 mm2 N2XOH  +1x6.0 mm2 N2XOH(N)  DUCTO , PVC   25 mm" "")
+				(list "tabS" "TD-4" "1ER PISO")
+				(list "inicir" "C-6")
+				(list "int" "10 kA" "3 x 16 A")
+				(list "linea" "3 - 1x6.0 mm2 N2XOH  +1x6.0 mm2 N2XOH(N)  DUCTO , PVC   25 mm" "")
+				(list "conex" (list 923 0))
+				(list "inicir" "C-7")
+				(list "int" "6 kA" "2 x 16 A")
+				(list "linea" "2 - 1x6.0 mm2 N2XOH  DUCTO , PVC   20 mm" "")
+				(list "tabS" "TD-6" "1ER PISO")
+				(list "inicir" "C-8")
+				(list "int" "10 kA" "3 x 16 A")
+				(list "linea" "3 - 1x6.0 mm2 N2XOH  +1x6.0 mm2 N2XOH(N)  DUCTO , PVC   25 mm" "")
+				(list "tabS" "TB" "1ER PISO")
+				(list "inicir" "C-9")
+				(list "int" "10 kA" "3 x 40 A")
+				(list "linea" "3 - 1x6.0 mm2 N2XOH  +1x6.0 mm2 N2XOH(N)  PVC   25 mm" "")
+				(list "tabS" "TD-PD" "1ER PISO")
+				(list "inicir" "C-10")
+				(list "int" "6 kA" "2 x 16 A")
+				(list "dif" "6 kA" "2 x 25 A")
+				(list "linea" "2 - 1x2.5 mm2 NH-80  +1x2.5 mm2 NH-80(T)  PVC   20 mm" "")
+				(list "ending" "ALUMBRADO")
+				(list "inicir" "C-11")
+				(list "int" "6 kA" "2 x 16 A")
+				(list "dif" "6 kA" "2 x 25 A")
+				(list "con")
+				(list "linea" "2 - 1x10.0 mm2 N2XOH  +1x4.0 mm2 N2XOH(T)  PVC   35 mm" "")
+				(list "ending" "ALUMBRADO EXTERIOR")
+				(list "inicir" "C-12")
+				(list "int" "6 kA" "2 x 16 A")
+				(list "dif" "6 kA" "2 x 25 A")
+				(list "con")
+				(list "linea" "2 - 1x10.0 mm2 N2XOH  +1x4.0 mm2 N2XOH(T)  PVC   35 mm" "")
+				(list "ending" "ALUMBRADO EXTERIOR")
+				(list "inicir" "C-13")
+				(list "int" "6 kA" "2 x 16 A")
+				(list "dif" "6 kA" "2 x 25 A")
+				(list "linea" "2 - 1x2.5 mm2 NH-80  +1x2.5 mm2 NH-80(T)  PVC   20 mm" "")
+				(list "ending" "AIRE ACONDICIONADO")
+				(list "inicir" "C-14")
+				(list "int" "6 kA" "2 x 16 A")
+				(list "dif" "6 kA" "2 x 25 A")
+				(list "con")
+				(list "linea" "2 - 1x4.0 mm2 NH-80  +1x2.5 mm2 NH-80(T)  DUCTO , PVC   20 mm" "")
+				(list "ending" "CAMPANILLA DE TIMBRE")
+				(list "inicir" "C-15")
+				(list "int" "6 kA" "2 x 16 A")
+				(list "dif" "6 kA" "2 x 25 A")
+				(list "linea" "2 - 1x4.0 mm2 NH-80  +1x2.5 mm2 NH-80(T)  PVC   20 mm" "")
+				(list "ending" "TOMACORRIENTES")
+			)
+		)
+		(list 
+			(list 
+				(list (list 900 0)  "3 x 30 A\n10 kA")
+			)
+			(list "TESTG")
+			(list
+				(list "cage" "P.I.=12.76KW\nM.D.=12.76KW\nIP 55" "Gabinete de 34 polos")
+				(list "inicir" "C-1")
+				(list "int" "10 kA" "3 x 16 A")
+				(list "linea" "3 - 1x6.0 mm2 N2XOH  +1x6.0 mm2 N2XOH(N)  DUCTO , PVC   25 mm" "")
+				(list "tabS" "TES-1" "1ER PISO")
+				(list "inicir" "C-2")
+				(list "int" "10 kA" "3 x 16 A")
+				(list "linea" "3 - 1x6.0 mm2 N2XOH  +1x6.0 mm2 N2XOH(N)  DUCTO , PVC   25 mm" "")
+				(list "tabS" "TES-2" "1ER PISO")
+				(list "inicir" "C-3")
+				(list "int" "10 kA" "3 x 16 A")
+				(list "linea" "3 - 1x6.0 mm2 N2XOH  +1x6.0 mm2 N2XOH(N)  DUCTO , PVC   25 mm" "")
+				(list "tabS" "TES-3" "1ER PISO")
+				(list "inicir" "C-4")
+				(list "int" "10 kA" "3 x 16 A")
+				(list "linea" "3 - 1x6.0 mm2 N2XOH  +1x6.0 mm2 N2XOH(N)  DUCTO , PVC   25 mm" "")
+				(list "tabS" "TES-4" "1ER PISO")
+				(list "inicir" "C-5")
+				(list "int" "10 kA" "3 x 16 A")
+				(list "linea" "3 - 1x6.0 mm2 N2XOH  +1x6.0 mm2 N2XOH(N)  DUCTO , PVC   25 mm" "")
+				(list "conex" (list 924 0))
+			)
+		)
+		(list 
+			(list 
+				(list (list 924 0)  "3 x 16 A\n10 kA")
+			)
+			(list "TES-5")
+			(list
+				(list "cage" "P.I.=8.23KW\nM.D.=7.4KW\nIP 40" "Gabinete de 26 polos")
+				(list "inicir" "C-1")
+				(list "int" "6 kA" "2 x 16 A")
+				(list "dif" "6 kA" "2 x 25 A")
+				(list "linea" "2 - 1x4.0 mm2 NH-80  +1x2.5 mm2 NH-80(T)  PVC   20 mm" "")
+				(list "ending" "TOMACORRIENTES ESTB.")
+				(list "inicir" "C-2")
+				(list "int" "6 kA" "2 x 16 A")
+				(list "dif" "6 kA" "2 x 25 A")
+				(list "linea" "2 - 1x4.0 mm2 NH-80  +1x2.5 mm2 NH-80(T)  PVC   20 mm" "")
+				(list "ending" "TOMACORRIENTES ESTB.")
+				(list "inicir" "C-3")
+				(list "int" "10 kA" "3 x 16 A")
+				(list "linea" "3 - 1x6.0 mm2 N2XOH  +1x6.0 mm2 N2XOH(N)  +1x10.0 mm2 N2XOH(T)  PVC   35 mm" "")
+				(list "tabS" "STES-5" "2DO PISO")
+			)
+		)
+		(list 
+			(list 
+				(list (list 923 0)  "3 x 16 A\n10 kA")
+			)
+			(list "TD-5")
+			(list
+				(list "cage" "P.I.=5.28KW\nM.D.=4.75KW\nIP 40" "Gabinete de 50 polos")
+				(list "inicir" "C-1")
+				(list "int" "6 kA" "2 x 16 A")
+				(list "dif" "6 kA" "2 x 25 A")
+				(list "linea" "2 - 1x2.5 mm2 NH-80  +1x2.5 mm2 NH-80(T)  PVC   20 mm" "")
+				(list "ending" "ALUMBRADO")
+				(list "inicir" "C-2")
+				(list "int" "6 kA" "2 x 16 A")
+				(list "dif" "6 kA" "2 x 25 A")
+				(list "linea" "2 - 1x2.5 mm2 NH-80  +1x2.5 mm2 NH-80(T)  PVC   20 mm" "")
+				(list "ending" "ALUMBRADO")
+				(list "inicir" "C-3")
+				(list "int" "6 kA" "2 x 16 A")
+				(list "dif" "6 kA" "2 x 25 A")
+				(list "linea" "2 - 1x2.5 mm2 NH-80  +1x2.5 mm2 NH-80(T)  PVC   20 mm" "")
+				(list "ending" "ALUMBRADO")
+				(list "inicir" "C-4")
+				(list "int" "6 kA" "2 x 16 A")
+				(list "dif" "6 kA" "2 x 25 A")
+				(list "linea" "2 - 1x4.0 mm2 NH-80  +1x2.5 mm2 NH-80(T)  PVC   20 mm" "")
+				(list "ending" "TOMACORRIENTES")
+				(list "inicir" "C-5")
+				(list "int" "6 kA" "2 x 16 A")
+				(list "dif" "6 kA" "2 x 25 A")
+				(list "linea" "2 - 1x4.0 mm2 NH-80  +1x2.5 mm2 NH-80(T)  PVC   20 mm" "")
+				(list "ending" "TOMACORRIENTES")
+				(list "inicir" "C-6")
+				(list "int" "10 kA" "3 x 16 A")
+				(list "linea" "3 - 1x6.0 mm2 N2XOH  +1x6.0 mm2 N2XOH(N)  +1x10.0 mm2 N2XOH(T)  PVC   35 mm" "")
+				(list "tabS" "STD-5" "2DO PISO")
+			)
+		)
+	)
+)
+(defun cData()
+	write
+	(list
+		(list "int" "QC1\n16A")
+		(list "mint" "KC1\n9A")
+		(list "end" "C1\n2.5KVAR")
+		(list "mint" "KC2\n9A")
+		(list "end" "C2\n2.5KVAR")
+		(list "int" "QC2\n16A")
+		(list "mint" "KC3\n9A")
+		(list "end" "C3\n2.5KVAR")
+	)
+)
+(defun dataCrown()
+	write (list (list 899 0) "3 - 1x10.0 mm2 N2XOH  +1x10.0 mm2 N2XOH(N)  PVC \n 35 mm")
+)
+
+
 ;-------llamada---------
 ;funcion para desfasar la caja, es el espacio entre los tableros
 (defun DesfasarCaja (punto data / counter)
@@ -1085,7 +1305,8 @@
 	(setq counter (+ 21.0 counter))
 	write (+ counter (car punto))
 )
-(defun c:diferencial (punto texto1 texto2))
+
+
 ;-------llamada----
 (defun diferencial (punto texto1 texto2)
 	(setvar "CLAYER" "Ambar")
@@ -1145,7 +1366,8 @@
 		"")
 	write (list (- (car punto) 0) (- (cadr punto) 3.5))
 )
-(defun c:EIterar (data punto))
+
+
 ;---llamada----
 (defun EIterar (data punto)
 	(command "line"
@@ -1348,7 +1570,8 @@
 		"_Height" 0.8
 		"_none" "@" (strcat "GRUPO ELECTROGENO\n" (car data) "\n" (cadr data)) "")
 )
-(defun c:electrogeno (DataColec / dataElec flag f1 f2))
+
+
 ;---llamada---
 (defun electrogeno (DataColec / dataElec flag f1 f2)
 	(setq dataElec (eData))
@@ -1377,7 +1600,8 @@
 		)
 	)
 )
-(defun c:Eline (texto1 texto2 punto))
+
+
 ;--llamada---
 (defun Eline (texto1 texto2 punto)
 	(command "line"
@@ -1395,7 +1619,8 @@
 		"_Rotation" 90
 		"_none" "@" texto2 "")
 )
-(defun c:encerrar (p1 p2 texto))
+
+
 ;---llamada---
 (defun encerrar (p1 p2 texto)
 	(setvar "CLAYER" "Contorno")
@@ -1411,7 +1636,8 @@
 		"_none" "@" texto "")
 	write (list (- (car p1) 4.5) (+ (car p2) 8.5))
 )
-(defun c:general(punto dato id infoD / pini pfin pivot clista palto caja contador idList corX))
+
+
 ;-------lamada-------
 (defun general(punto dato id infoD / pini pfin pivot clista palto caja contador idList corX)
 	(setq contador 1)
@@ -1510,8 +1736,9 @@
 	write (list pfin clista)
 )
 
-(defun c:IniCir(unto texto))
-;-----llamada-----
+
+
+;---llamada----
 ;funciones generales
 (defun IniCir(punto texto)
 	(setvar "CLAYER" "Cables")
@@ -1523,7 +1750,8 @@
 	(command "_.MTEXT" (list (+ (car punto) 0.1) (- (cadr punto) 0.1)) "_Justify" "TL" "_Height" 0.6 "_none" "@" texto "")
 	write (list (car punto) (- (cadr punto) 2))
 )
-(defun c:interruptor(punto texto1 texto2))
+
+
 ;-----llamada-----
 (defun interruptor (punto texto1 texto2)
 	(setvar "CLAYER" "Celeste")
@@ -1559,7 +1787,8 @@
 		"_none" "@" texto2 "")
 	write (list (car punto) (- (cadr punto) 3.7))
 )
-(defun c:Layers())
+
+
 ;--llamada---
 (defun Layers()
 	(command "-layer"
@@ -1583,7 +1812,8 @@
 		"c" "t" "255,20,20" ""
 		"")
 )
-(defun c:lineaG (punto puntoI texto1 texto2))
+
+
 ;-----llamada-----
 (defun lineaG (punto puntoI texto1 texto2)
 	(setvar "CLAYER" "Verde")
@@ -1604,7 +1834,8 @@
 		"_none" "@" texto2 "")
 	write (list (car puntoI) (- (cadr puntoI) 47.2))
 )
-(defun c:medidorm(punto texto))
+
+
 ;-----llamada-----
 (defun medidorm (punto texto)
 	(setvar "CLAYER" "Celeste")
@@ -1692,7 +1923,8 @@
 	;falta la parte de la izquierda en azul y celeste
 	write (list (car punto) (+ (cadr punto) 7))
 )
-(defun c:PonerCaja (punto dato texto / counter pCaja))
+
+
 ;---llamada---
 ;funcion para poner la caja aca se puso el gabinete tambien
 (defun PonerCaja (punto dato texto / counter pCaja)
@@ -1725,7 +1957,8 @@
 		"_none" "@" (cadr texto) "")
 	write pCaja
 )
-(defun c:reloj (punto))
+
+
 ;-----llamada-----
 (defun reloj (punto)
 	(command "line"
@@ -1760,7 +1993,8 @@
 		"")
 	write (list (car punto) (- (cadr punto) 2))
 )
-(defun c:transferInt (punto))
+
+
 ;------llamada---
 
 (defun transferInt (punto)
@@ -1785,7 +2019,8 @@
 		(list (- (car punto) 0.3) (+ (cadr punto) 4.3))
 		"")
 )
-(defun c:transferUp (punto texto))
+
+
 ;----llamada--
 ;dibuja la transferencia en la parte de arriba del tablero
 (defun transferUp (punto texto)
@@ -1829,7 +2064,8 @@
 			(list (+ (car punto) 2) (+ (cadr punto) 5.5))
 			)
 )
-(defun c:ultiTab(punto texto1 texto2))
+
+
 ;-----llamada-----
 (defun ultiTab(punto texto1 texto2)
 	(setvar "CLAYER" "AzulA")

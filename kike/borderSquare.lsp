@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
-	(borderSquare punto "hola")
+	(borderSquare punto 1)
 )
+;&barracudaStop
 ;----lamada---
 (defun borderSquare (punto modo)
 	(if (= modo 1)

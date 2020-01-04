@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
 	(reloj punto "Hola")
 )
+;&barracudaStop
 ;-----llamada-----
 (defun reloj (punto)
 	(command "line"

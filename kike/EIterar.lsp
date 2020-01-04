@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ data)
 	(setq data (getpoint "Texto"))
 	(EIterar data "Hola")
 )
+;&barracudaStop
 ;---llamada----
 (defun EIterar (data punto)
 	(command "line"

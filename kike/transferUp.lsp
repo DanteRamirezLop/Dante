@@ -1,7 +1,9 @@
+;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
 	(transferUp punto "Hola")
 )
+;&barracudaStop
 ;----llamada--
 ;dibuja la transferencia en la parte de arriba del tablero
 (defun transferUp (punto texto)
