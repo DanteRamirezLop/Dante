@@ -1,4 +1,7 @@
-(defun c:cRele (punto punto2))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(cRele punto "Hola")
+)
 ;---llamada----
 (defun cRele (punto punto2)
 	(command "rectang"
