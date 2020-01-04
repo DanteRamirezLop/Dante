@@ -1,4 +1,7 @@
-(defun c:encerrar (p1 p2 texto))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(encerrar punto "Hola")
+)
 ;---llamada---
 (defun encerrar (p1 p2 texto)
 	(setvar "CLAYER" "Contorno")
