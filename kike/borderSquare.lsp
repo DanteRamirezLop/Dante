@@ -1,6 +1,6 @@
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
-	(borderSquare punto 0)
+	(borderSquare punto "hola")
 )
 ;----lamada---
 (defun borderSquare (punto modo)
