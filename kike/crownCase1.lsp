@@ -1,4 +1,7 @@
-(defun c:crownCase1 (punto))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(crownCase1 punto "Hola")
+)
 ;---llamada----
 (defun crownCase1 (punto)
 	(command "line"
