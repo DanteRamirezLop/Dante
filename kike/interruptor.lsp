@@ -1,4 +1,7 @@
-(defun c:interruptor(punto texto1 texto2))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(interruptor punto "Hola")
+)
 ;-----llamada-----
 (defun interruptor (punto texto1 texto2)
 	(setvar "CLAYER" "Celeste")
