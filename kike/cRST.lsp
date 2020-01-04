@@ -1,4 +1,7 @@
-(defun c:cRST(punto))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(cRST punto "Hola")
+)
 ;---llamada----
 (defun cRST(punto)
 	(command "line"
