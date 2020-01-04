@@ -1,3 +1,9 @@
+
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(data punto "Hola")
+)
+;---llamado-----
 (defun data()
 	write
 	(list
