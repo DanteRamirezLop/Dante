@@ -1,4 +1,7 @@
-(defun c:conmutador (punto orden texto))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(conmutador punto "Hola")
+)
 ;-----llamada-----
 (defun conmutador(punto orden texto)
 	(command "line"
