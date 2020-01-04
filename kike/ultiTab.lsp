@@ -1,4 +1,7 @@
-(defun c:ultiTab(punto texto1 texto2))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(ultiTab punto "Hola")
+)
 ;-----llamada-----
 (defun ultiTab(punto texto1 texto2)
 	(setvar "CLAYER" "AzulA")
