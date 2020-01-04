@@ -1,4 +1,7 @@
-(defun c:lineaG (punto puntoI texto1 texto2))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(lineaG punto "Hola")
+)
 ;-----llamada-----
 (defun lineaG (punto puntoI texto1 texto2)
 	(setvar "CLAYER" "Verde")
