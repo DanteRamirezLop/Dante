@@ -1,4 +1,7 @@
-(defun c:reloj (punto))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(reloj punto "Hola")
+)
 ;-----llamada-----
 (defun reloj (punto)
 	(command "line"
