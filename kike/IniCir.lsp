@@ -1,6 +1,6 @@
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
-	(CIterador punto "Hola")
+	(IniCir punto "Hola")
 )
 ;---llamada----
 ;funciones generales
