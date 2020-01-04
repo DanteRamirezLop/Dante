@@ -1,4 +1,7 @@
-(defun c:contactor(punto))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(contactor punto "Hola")
+)
 ;-----llamada-----
 (defun contactor(punto)
 	(setvar "CLAYER" "Verde")
