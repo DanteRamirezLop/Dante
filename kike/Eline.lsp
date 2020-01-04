@@ -1,4 +1,8 @@
-(defun c:Eline (texto1 texto2 punto))
+(defun c:unigen (/ texto1 texto2 punto)
+	(setq texto1 (getpoint "texto1"))
+	(setq texto2 (getpoint "texto2"))
+	(Eline "hola" texto1 texto2)
+)
 ;--llamada---
 (defun Eline (texto1 texto2 punto)
 	(command "line"
