@@ -1,4 +1,7 @@
-(defun c:medidorm(punto texto))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(medidorm punto "Hola")
+)
 ;-----llamada-----
 (defun medidorm (punto texto)
 	(setvar "CLAYER" "Celeste")
