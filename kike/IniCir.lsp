@@ -1,5 +1,8 @@
-(defun c:IniCir(unto texto))
-;-----llamada-----
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(CIterador punto "Hola")
+)
+;---llamada----
 ;funciones generales
 (defun IniCir(punto texto)
 	(setvar "CLAYER" "Cables")
