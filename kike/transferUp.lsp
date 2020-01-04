@@ -1,4 +1,7 @@
-(defun c:transferUp (punto texto))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(transferUp punto "Hola")
+)
 ;----llamada--
 ;dibuja la transferencia en la parte de arriba del tablero
 (defun transferUp (punto texto)
