@@ -1,4 +1,7 @@
-(defun c:cEnd (punto texto))
+(defun c:unigen (/ punto)
+	(setq punto (getpoint "punto"))
+	(cEnd punto "Hola")
+)
 ;----llamada----
 (defun cEnd (punto texto)
 	(command "line"
