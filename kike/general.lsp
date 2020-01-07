@@ -9,7 +9,7 @@
 	(setq contador 1)
 	(setq pini punto)
 	(foreach orden dato
-		(if (= (car orden) "cage")
+		(if (= (car orden) "cage");en el data debe estar al final
 			(setq caja (PonerCaja punto dato (list (cadr orden) (caddr orden))))
 		)
 		(if (= (car orden) "inicir")

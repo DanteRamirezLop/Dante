@@ -7,7 +7,6 @@
 			)
 			(list "TG")
 			(list
-				(list "cage" "P.I.=41.86KW\nM.D.=37.67KW\nIP 55" "Gabinete de 128 polos")
 				(list "inicir" "C-1")
 				(list "int" "10 kA" "3 x 32 A")
 				(list "linea" "3 - 1x10.0 mm2 N2XOH  +1x10.0 mm2 N2XOH(N)  PVC   35 mm" "")
@@ -77,6 +76,7 @@
 				(list "dif" "6 kA" "2 x 25 A")
 				(list "linea" "2 - 1x4.0 mm2 NH-80  +1x2.5 mm2 NH-80(T)  PVC   20 mm" "")
 				(list "ending" "TOMACORRIENTES")
+				(list "cage" "P.I.=41.86KW\nM.D.=37.67KW\nIP 55" "Gabinete de 128 polos")
 			)
 		)
 		(list 
@@ -85,7 +85,6 @@
 			)
 			(list "TESTG")
 			(list
-				(list "cage" "P.I.=12.76KW\nM.D.=12.76KW\nIP 55" "Gabinete de 34 polos")
 				(list "inicir" "C-1")
 				(list "int" "10 kA" "3 x 16 A")
 				(list "linea" "3 - 1x6.0 mm2 N2XOH  +1x6.0 mm2 N2XOH(N)  DUCTO , PVC   25 mm" "")
@@ -106,6 +105,7 @@
 				(list "int" "10 kA" "3 x 16 A")
 				(list "linea" "3 - 1x6.0 mm2 N2XOH  +1x6.0 mm2 N2XOH(N)  DUCTO , PVC   25 mm" "")
 				(list "conex" (list 924 0))
+				(list "cage" "P.I.=12.76KW\nM.D.=12.76KW\nIP 55" "Gabinete de 34 polos")
 			)
 		)
 		(list 
@@ -114,7 +114,6 @@
 			)
 			(list "TES-5")
 			(list
-				(list "cage" "P.I.=8.23KW\nM.D.=7.4KW\nIP 40" "Gabinete de 26 polos")
 				(list "inicir" "C-1")
 				(list "int" "6 kA" "2 x 16 A")
 				(list "dif" "6 kA" "2 x 25 A")
@@ -129,6 +128,7 @@
 				(list "int" "10 kA" "3 x 16 A")
 				(list "linea" "3 - 1x6.0 mm2 N2XOH  +1x6.0 mm2 N2XOH(N)  +1x10.0 mm2 N2XOH(T)  PVC   35 mm" "")
 				(list "tabS" "STES-5" "2DO PISO")
+				(list "cage" "P.I.=8.23KW\nM.D.=7.4KW\nIP 40" "Gabinete de 26 polos")
 			)
 		)
 		(list 
@@ -137,7 +137,6 @@
 			)
 			(list "TD-5")
 			(list
-				(list "cage" "P.I.=5.28KW\nM.D.=4.75KW\nIP 40" "Gabinete de 50 polos")
 				(list "inicir" "C-1")
 				(list "int" "6 kA" "2 x 16 A")
 				(list "dif" "6 kA" "2 x 25 A")
@@ -167,6 +166,7 @@
 				(list "int" "10 kA" "3 x 16 A")
 				(list "linea" "3 - 1x6.0 mm2 N2XOH  +1x6.0 mm2 N2XOH(N)  +1x10.0 mm2 N2XOH(T)  PVC   35 mm" "")
 				(list "tabS" "STD-5" "2DO PISO")
+				(list "cage" "P.I.=5.28KW\nM.D.=4.75KW\nIP 40" "Gabinete de 50 polos")
 			)
 		)
 	)
