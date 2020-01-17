@@ -41,7 +41,7 @@
 			(setq pivot (interruptor pivot (cadr orden) (caddr orden)))
 		)
 		(if (= (car orden) "dif")
-			(setq pivot (diferencial pivot (cadr orden) (caddr orden)))
+			(setq pivot (diferencial pivot (cadr orden) (caddr orden) (cadddr orden)))
 		)
 		(if (= (car orden) "con")
 			(setq pivot (contactor pivot))

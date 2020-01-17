@@ -1,7 +1,7 @@
 ;&barracudaStart
 (defun c:unigen (/ punto)
 	(setq punto (getpoint "punto"))
-	(contactor punto "Hola")
+	(contactor punto)
 )
 ;&barracudaStop
 ;-----llamada-----
